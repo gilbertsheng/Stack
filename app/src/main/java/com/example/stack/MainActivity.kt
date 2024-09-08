@@ -18,12 +18,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val todo = listOf(
-            "Android", "APUE", "Dinosaur", "English", "Gatsby",
-            "Happier", "IETLS", "Japanese", "Leetcode", "Networking",
-            "OSTEP", "Recipe", "Solitude", "stdlib", "TCP/IP",
-            "Wikipedia"
+            "Advanced Programming in the Unix Environment",
+            "Alice's Adventures in Wonderland",
+            "Android Programming",
+            "Breaking Bad",
+            "Computer Networking",
+            "Dinosaur Brains",
+            "Duolingo Japanese",
+            "Friends",
+            "GNU Emacs Manual",
+            "Happier",
+            "Leetcode",
+            "Operating Systems",
+            "Oxford IETLS Words",
+            "Pro Git",
+            "TCP/IP Protocol Suite",
+            "The Standard C Library",
+            "Wikipedia",
+            "日日之食",
+            "百年孤独",
         )
-        val text = todo.shuffled().take(5).joinToString(separator = "\n\n")
+        var weightMap = todo.associateWith { 5 }.toMutableMap()
+        weightMap["Breaking Bad"] = 2;
+        weightMap["GNU Emacs Manual"] = 2;
+        weightMap["Friends"] = 3;
+        weightMap["Pro Git"] = 3;
+
+        val list = weightMap.entries.toList().map { (k, v) ->
+            List(v) {k}
+        }.flatten()
+        val text = list.shuffled().toSet().take(5).joinToString(separator = "\n\n")
         binding.text.text = text
     }
 }
