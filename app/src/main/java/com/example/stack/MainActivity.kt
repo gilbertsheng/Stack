@@ -17,6 +17,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.text.text = randomItems()
+
+        binding.retryButton.setOnClickListener {
+            binding.text.text = randomItems()
+        }
+    }
+
+    private fun randomItems(): String {
         val todo = listOf(
             "Advanced Programming in the Unix Environment",
             "Alice's Adventures in Wonderland",
@@ -32,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             "Operating Systems",
             "Oxford IETLS Words",
             "Pro Git",
-            "TCP/IP Protocol Suite",
+            // "TCP/IP Protocol Suite",
             "The Standard C Library",
             "Wikipedia",
             "日日之食",
@@ -47,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         val list = weightMap.entries.toList().map { (k, v) ->
             List(v) {k}
         }.flatten()
-        val text = list.shuffled().toSet().take(5).joinToString(separator = "\n\n")
-        binding.text.text = text
+
+        return list.shuffled().toSet().take(5).joinToString(separator = "\n\n")
     }
 }
