@@ -33,13 +33,13 @@ class MainActivity : AppCompatActivity() {
             "Breaking Bad",
             "Computer Networking",
             "Dinosaur Brains",
-            "Duolingo Japanese",
             "Friends",
             "GNU Emacs Manual",
+            "graphviz",
             "Happier",
+            "LaTeX",
             "Leetcode",
             "Operating Systems",
-            "Oxford IETLS Words",
             "Pro Git",
             // "TCP/IP Protocol Suite",
             "The Standard C Library",
@@ -50,12 +50,11 @@ class MainActivity : AppCompatActivity() {
         var weightMap = todo.associateWith { 5 }.toMutableMap()
         weightMap["Breaking Bad"] = 2;
         weightMap["GNU Emacs Manual"] = 2;
+        weightMap["graphviz"] = 2;
         weightMap["Friends"] = 3;
         weightMap["Pro Git"] = 3;
 
-        val list = weightMap.entries.toList().map { (k, v) ->
-            List(v) {k}
-        }.flatten()
+        val list = weightMap.entries.toList().map { (k, v) -> List(v) { k } }.flatten()
 
         return list.shuffled().toSet().take(5).joinToString(separator = "\n\n")
     }
