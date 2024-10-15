@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private fun randomItems(): String {
         val todo = listOf(
             "Advanced Programming in the Unix Environment",
+            "Agile Web Development with Rails 7",
             "Alice's Adventures in Wonderland",
             "Android Programming",
             "Breaking Bad",
