@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun randomItems(): String {
         val todo = listOf(
+            // C Programming: A Modern Approach, 2nd Edition
+            // xv6
+            // RISC-V
+            // The AWK Programming Language
+
             "Advanced Programming in the Unix Environment",
             "Agile Web Development with Rails 7",
             "Alice's Adventures in Wonderland",
